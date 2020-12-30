@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+.itemContainer{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    cursor: pointer;
+    &:nth-child(2n){
+        background-color: lightgray;
+    }
+    &:nth-child(2n+1){
+        background-color: lightskyblue;
+    }
+    & p{
+        margin: 0%;
+        align-self: center;
+        font: {
+            family: Raleway, sans-serif;
+            style: normal;
+            weight: normal;
+            size: 16px;
+        }
+        line-height: 120%;
+    }
+    & .artID{
+        width: 5%;
+        font-weight: bold;
+    }
+    & .nombre{
+        width: 70%;
+    }
+    & .relevancia{
+        width: 15%;
+    }
+    & .precio{
+        width: 10%;
+    }
+}
