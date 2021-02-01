@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    height: 10%;
+    height: 2em;
     border: 1px solid darkgray;
     border-radius: 5px;
     cursor: pointer;
@@ -16,28 +16,72 @@
     &:nth-child(2n+1){
         background-color: lightskyblue;
     }
-    & p{
+    & > p{
         margin: 0%;
         align-self: center;
         font: {
             family: Raleway, sans-serif;
             style: normal;
             weight: normal;
-            size: 16px;
+            size: 12px;
         }
         line-height: 120%;
     }
     & .artID{
-        width: 5%;
+        width: 7%;
         font-weight: bold;
     }
     & .nombre{
-        width: 70%;
+        width: 55%;
     }
     & .relevancia{
-        width: 15%;
+        width: 20%;
     }
     & .precio{
-        width: 10%;
+        width: 18%;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .itemContainer{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        height: 10%;
+        border: 1px solid darkgray;
+        border-radius: 5px;
+        cursor: pointer;
+        &:nth-child(2n){
+            background-color: lightgray;
+        }
+        &:nth-child(2n+1){
+            background-color: lightskyblue;
+        }
+        & p{
+            margin: 0%;
+            align-self: center;
+            font: {
+                family: Raleway, sans-serif;
+                style: normal;
+                weight: normal;
+                size: 16px;
+            }
+            line-height: 120%;
+        }
+        & .artID{
+            width: 5%;
+            font-weight: bold;
+        }
+        & .nombre{
+            width: 70%;
+        }
+        & .relevancia{
+            width: 15%;
+        }
+        & .precio{
+            width: 10%;
+        }
     }
 }

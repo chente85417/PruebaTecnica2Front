@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+.seekerContainer{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font: {
+        family: Raleway, sans-serif;
+        style: normal;
+        weight: normal;
+        size: 12px;
+    }
+    line-height: 120%;
+    & #DBEngineSelectors{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3px;
+        width: 90%;
+        min-width: 282px;
+        margin: auto;
+        & input{
+            width: 8%;
+            height: 2em;
+        }
+        & label{
+            width: 35%;
+            height: 2em;
+            margin-bottom: 0px;
+            align-self: center;
+            & #MariaDBContainer, #MongoDBContainer{
+                width: 100%;
+                & img{
+                    height: 2em;
+                }
+            }
+        }
+    }
+    & #selectors{
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        & input{
+            width: 8%;
+        }
+        & label{
+            width: 35%;
+            margin-bottom: 0px;
+            align-self: center;
+        }
+    }
+    & #seekerText{
+        width: 100%;
+        order: 3;
+        height: 2.5em;
+        text-align: center;
+        margin-top: 5px;
+        font-size: 1em;
+    }
+    & button{
+        width: 18%;
+        padding: 0%;
+        order: 2;
+        font-size: .8em;
+    }
+    & .list-group{
+        position: absolute;
+        z-index: 10;
+        top: 80px;
+        width: 100%;
+        height: 60vh;
+        overflow-y: scroll;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .seekerContainer{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        font: {
+            family: Raleway, sans-serif;
+            style: normal;
+            weight: normal;
+            size: 16px;
+        }
+        line-height: 120%;
+        & #DBEngineSelectors{
+            width: 60%;
+            max-width: 415px;
+        }
+        & #selectors{
+            display: flex;
+            justify-content: center;
+            width: 40%;
+            max-width: 277px;
+            & input{
+                width: 5%;
+            }
+            & label{
+                width: 45%;
+                margin-bottom: 0px;
+                align-self: center;
+            }
+        }
+        & #seekerText{
+            width: 80%;
+            order: 2;
+            height: 2.5em;
+            text-align: center;
+        }
+        & button{
+            width: 18%;
+            order: 3;
+        }
+        & .list-group{
+            position: absolute;
+            z-index: 10;
+            top: 80px;
+            width: 80%;
+            height: 50vh;
+            overflow-y: scroll;
+        }
+    }
+}

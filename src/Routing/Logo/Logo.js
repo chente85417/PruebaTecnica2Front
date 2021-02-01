@@ -10,7 +10,7 @@ const Logo = () => {
     const [launchHome, setlaunchHome] = useState(false);
   
     useEffect(() => {
-        setTimeout(() => setlaunchHome(true), 3000);
+        setTimeout(() => setlaunchHome(false), 3000);
     }, []);
 
     return (

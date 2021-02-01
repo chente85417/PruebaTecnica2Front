@@ -1,56 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 .headerContainer{
+    position: sticky;
+    top: 0px;
+    z-index: 2;
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid black;
+    background-color: whitesmoke;
     width: 100%;
-    height: 10%;
     font: {
         family: Raleway, sans-serif;
         style: normal;
         weight: normal;
-        size: 16px;
+        size: 10px;
     }
     line-height: 120%;
     & p{
         margin: 0%;
     }
-    & > p{
-        width: 5%;
-        height: 100%;
-        padding-top: 1.7%;
-        font-weight: bold;
-        border: 1px solid black;
-    }
     & .fieldContainer{
         height: 100%;
         display: flex;
         flex-wrap: wrap;
-        border: 1px solid black;
         & .icon{
-            width: 30px;
+            width: 25px;
             cursor: pointer;
+        }
+    }
+    & .fieldContainer:first-child{
+        width: 7%;
+        border: none;
+        & p{
+            width: 100%;
+            /*padding-top: 5px;*/
+            text-align: center;
+            font-weight: bold;
         }
     }
     & .fieldContainer:nth-child(2){
         justify-content: center;
-        width: 70%;
+        width: 55%;
         & .title{
-            padding: 2.5% 2% 0% 0%;
-        }
-        & .icon{
-            padding-top: 1.7%;
+            width: 100%;
         }
     }
     & .fieldContainer:nth-child(3){
         justify-content: space-around;
-        width: 15%;
+        width: 20%;
+        & .title{
+            width: 100%;
+        }
     }
     & .fieldContainer:last-child{
         justify-content: space-around;
-        width: 10%;
+        width: 18%;
         & .title{
             width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .headerContainer{
+        width: 100%;
+        height: 10%;
+        font-size: 16px;
+        & .fieldContainer .icon{
+            width: 30px;
+        }
+        & .fieldContainer:first-child{
+            width: 5%;
+            & p{
+                width: 100%;
+                text-align: center;
+                align-self: center;
+                font-weight: bold;
+            }
+        }
+        & .fieldContainer:nth-child(2){
+            width: 70%;
+        }
+        & .fieldContainer:nth-child(3){
+            width: 15%;
+        }
+        & .fieldContainer:last-child{
+            width: 10%;
         }
     }
 }

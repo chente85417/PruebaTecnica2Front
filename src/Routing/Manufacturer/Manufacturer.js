@@ -4,6 +4,12 @@
 //----------------------STYLES----------------------//
 import './Manufacturer.scss';
 
+//////////////////////////////////////////////////////////////////////////
+//                             MANUFACTURER                             //
+//Manufacturer´s data row component                                     //
+//It is just a rendering component that receives the data as a data set // 
+//via props and renders as an adjacent row just below the product one   //
+//////////////////////////////////////////////////////////////////////////
 const Manufacturer = ({data}) => {
   return (
     <div className="manufacturerContainer">
