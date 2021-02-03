@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import TableContext from '../../Contexts/TableContext.js';
 //--------------------COMPONENTS--------------------//
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,6 +18,9 @@ import './Header.scss';
 //////////////////////////////////////////////////////////////////////////////
 const Header = () => {
   //HOOKS
+  const [isNameAsc, setIsNameAsc] = useState(true); //Flag to set if current display for name field is ascendent
+  const [isRelevanceAsc, setIsRelevanceAsc] = useState(true); //Flag to set if current display for relevance field is ascendent
+  const [isPriceAsc, setIsPriceAsc] = useState(true); //Flag to set if current display for name price is ascendent
   const callback = useContext(TableContext);  //Context to receive the callback to notify the Home component
   
   ////////////////////////////////////////////////////////////////////////////////
@@ -30,9 +33,68 @@ const Header = () => {
   //Output: void                                                                //
   ////////////////////////////////////////////////////////////////////////////////
   const FieldOrder = (event) => {
+    let directionVal = undefined;
+    switch (event.currentTarget.getAttribute("data-field"))
+    {
+      case "NOMBRE":
+        {
+          if (isNameAsc)
+          {
+            //Request ascendent order for NOMBRE
+            directionVal = "ASC";
+            //Toggle icon
+            setIsNameAsc(false);
+          }//if
+          else
+          {
+            //Request descendent order for NOMBRE
+            directionVal = "DESC";
+            //Toggle icon
+            setIsNameAsc(true);
+          }//else
+          break;
+        }
+        case "RELEVANCIA":
+        {
+          if (isRelevanceAsc)
+          {
+            //Request ascendent order for RELEVANCIA
+            directionVal = "ASC";
+            //Toggle icon
+            setIsRelevanceAsc(false);
+          }//if
+          else
+          {
+            //Request descendent order for RELEVANCIA
+            directionVal = "DESC";
+            //Toggle icon
+            setIsRelevanceAsc(true);
+          }//else
+          break;
+        }
+        case "PRECIO":
+        {
+          if (isPriceAsc)
+          {
+            //Request ascendent order for PRICE
+            directionVal = "ASC";
+            //Toggle icon
+            setIsPriceAsc(false);
+          }//if
+          else
+          {
+            //Request descendent order for PRICE
+            directionVal = "DESC";
+            //Toggle icon
+            setIsPriceAsc(true);
+          }//else
+          break;
+        }
+        default:
+    }//switch
     //Use the callback from the context to pass all data to Home component
     callback({  field : event.currentTarget.getAttribute("data-field"), //selected sorting field
-                direction : event.currentTarget.getAttribute("data-direction"), //selected sorting direction
+                direction : directionVal, //selected sorting direction
                 range : undefined});  //pagination range (not used in Header)
   };//FieldOrder
 
@@ -43,29 +105,20 @@ const Header = () => {
       </div>
       <div key="NOMBRE" className="fieldContainer">
         <p className="title">NOMBRE</p>
-        <div key="ASC" data-field="NOMBRE" data-direction="ASC" className="icon" onClick = {FieldOrder}>
-          <FontAwesomeIcon key="nombre-asc" icon={faAngleUp} size = "2x" />
-        </div>
-        <div key="DESC" data-field="NOMBRE" data-direction="DESC" className="icon" onClick = {FieldOrder}>
-            <FontAwesomeIcon key="nombre-desc" icon={faAngleDown} size = "2x" />
+        <div key="NOMBRE" data-field="NOMBRE" className="icon" onClick = {FieldOrder}>
+          <FontAwesomeIcon key="nombre-icon" icon={isNameAsc ? faAngleDown : faAngleUp} size = "2x" />
         </div>
       </div>
       <div key="RELEVANCIA" className="fieldContainer">
         <p className="title">RELEVANCIA</p>
-        <div key="ASC" data-field="RELEVANCIA" data-direction="ASC" className="icon" onClick = {FieldOrder}>
-          <FontAwesomeIcon key="relevancia-asc" icon={faAngleUp} size = "2x" />
-        </div>
-        <div key="DESC" data-field="RELEVANCIA" data-direction="DESC" className="icon" onClick = {FieldOrder}>
-            <FontAwesomeIcon key="relevancia-desc" icon={faAngleDown} size = "2x" />
+        <div key="RELEVANCIA" data-field="RELEVANCIA" className="icon" onClick = {FieldOrder}>
+          <FontAwesomeIcon key="relevancia-icon" icon={isRelevanceAsc ? faAngleDown : faAngleUp} size = "2x" />
         </div>
       </div>
       <div key="PRECIO" className="fieldContainer">
         <p className="title">PRECIO</p>
-        <div key="ASC" data-field="PRECIO" data-direction="ASC" className="icon" onClick = {FieldOrder}>
-          <FontAwesomeIcon key="precio-asc" icon={faAngleUp} size = "2x" />
-        </div>
-        <div key="DESC" data-field="PRECIO" data-direction="DESC" className="icon" onClick = {FieldOrder}>
-            <FontAwesomeIcon key="precio-desc"  icon={faAngleDown} size = "2x" />
+        <div key="PRECIO" data-field="PRECIO" className="icon" onClick = {FieldOrder}>
+          <FontAwesomeIcon key="precio-icon" icon={isPriceAsc ? faAngleDown : faAngleUp} size = "2x" />
         </div>
       </div>
     </div>

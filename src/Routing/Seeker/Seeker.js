@@ -102,8 +102,16 @@ const Seeker = ({callback}) => {
         {
           //Store retrieved data in the variable
           hintsData.current = data.caption;
-          //Change state and order rendering of predictive list
-          setShowHints(true);
+          if (hintsData.current.length > 0)
+          {
+            //Change state and order rendering of predictive list
+            setShowHints(true);
+          }//if
+          else
+          {
+            //No data found so hide the predictive list
+            setShowHints(false);
+          }//else          
         }//else
       });  
     }//if
@@ -151,6 +159,8 @@ const Seeker = ({callback}) => {
   //Output: void                                                    //
   ////////////////////////////////////////////////////////////////////
   const OnOk = () => {
+    //Hide the predictive list
+    setShowHints(false);
     //Use the callback from the context to pass all data to Home component
     callback({  selector : selector.current,        //position of radio button selector
                 itemID : undefined,                 //ID of the element

@@ -1,9 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+$radius: 20vh;
+$speed: 10s;
+$topOrigin: 60vh;
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
 #logoContainer{
-    display: flex;
-    justify-content: center;
-    & #App-logo {
-      width: 75%;
-      margin-top: 40vh;
-      pointer-events: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  & #theBridgeContainer{
+    width: 80%;
+    margin-top: 80px;
+    & img{
+      width: 100%;
     }
   }
+  & #titleContainer{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    top: calc(#{$topOrigin} - 2em);
+    left: calc(50vw - 10vh);
+    width: 20vh;
+    height: 4em;
+    & p{
+      margin: 0%;
+      width: 100%;
+      height: 2em;
+      align-self: center;
+      font: {
+        family: Raleway, sans-serif;
+        style: normal;
+        weight: bold;
+        size: 12px;
+    }
+    }
+  }
+  & .container{
+    position: absolute;
+    height: 10vh;
+    width: 10vh;
+    /*background-color: crimson;*/
+    animation-duration: $speed;
+    animation-name: orbit;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    & img{
+      margin-left: -2vh;
+      width: 10vh;
+      animation-duration: $speed;
+      animation-name: spin;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  }
+  & #mongoContainer {
+    top: calc(#{$topOrigin} - 5vh - #{$radius});
+    left: calc(50vw - 5vh);
+    transform-origin: 5vh calc(5vh + #{$radius});
+  }
+  & #nodeContainer {
+    top: calc(#{$topOrigin} - 5vh - (.7071 * #{$radius}));
+    left: calc(50vw - 5vh + (.7071 * #{$radius}));
+    transform-origin: calc(5vh - (.7071 * #{$radius})) calc(5vh + (.7071 * #{$radius}));
+  }
+  & #expressContainer {
+    top: calc(#{$topOrigin} - 5vh);
+    left: calc(50vw - 5vh + #{$radius});
+    transform-origin: calc(5vh - #{$radius}) 5vh;
+  }
+  & #sassContainer {
+    top: calc(#{$topOrigin} - 5vh + (.7071 * #{$radius}));
+    left: calc(50vw - 5vh + (.7071 * #{$radius}));
+    transform-origin: calc(5vh - (.7071 * #{$radius})) calc(5vh - (.7071 * #{$radius}));
+  }
+  & #bootstrapContainer {
+    top: calc(#{$topOrigin} - 5vh + #{$radius});
+    left: calc(50vw - 5vh);
+    transform-origin: 5vh calc(5vh - #{$radius});
+  }
+  & #reactContainer {
+    top: calc(#{$topOrigin} - 5vh + (.7071 * #{$radius}));
+    left: calc(50vw - 5vh - (.7071 * #{$radius}));
+    transform-origin: calc(5vh + (.7071 * #{$radius})) calc(5vh - (.7071 * #{$radius}));
+  }
+  & #mariadbContainer {
+    top: calc(#{$topOrigin} - 5vh);
+    left: calc(50vw - 5vh - #{$radius});
+    transform-origin: calc(5vh + #{$radius}) 5vh;
+  }
+  & #jsContainer {
+    top: calc(#{$topOrigin} - 5vh - (.7071 * #{$radius}));
+    left: calc(50vw - 5vh - (.7071 * #{$radius}));
+    transform-origin: calc(5vh + (.7071 * #{$radius})) calc(5vh + (.7071 * #{$radius}));
+  }
+  
+  @media only screen and (min-width: 768px){
+    & #titleContainer{
+      top: calc(#{$topOrigin} - 4em);
+      height: 4em;
+      & p{
+        height: 2em;
+        font-size: 20px;
+      }
+    }
+  }
+}
